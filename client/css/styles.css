@@ -1,0 +1,21 @@
+.title {
+  text-align: center;
+}
+
+.submit-form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.loader {
+  height: 200px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+img.animated-loader {
+    width: 400px;
+    margin-top: -70px;
+    height: auto;
+}
