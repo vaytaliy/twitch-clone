@@ -19,3 +19,8 @@ img.animated-loader {
     margin-top: -70px;
     height: auto;
 }
+
+.post {
+  width: 80%;
+  margin: 0 auto;
+}

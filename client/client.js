@@ -30,15 +30,20 @@ form.addEventListener('submit', (e) => {
       .then(createdPost => {
             console.log(createdPost);
             form.reset();
-            loadingElement.style.display = 'none';
-            form.style.display = '';
+            setTimeout(() => {
+                form.style.display = '';
+            }, 30000)
+            loadingElement.style.display = 'none';    
+            listAllPosts();
         });
 });
 
 function listAllPosts() {
+    postElement.innerHTML = '';
     fetch(API_URL)
         .then(response => response.json())
         .then(createdPosts => {
+            createdPosts.reverse();
             createdPosts.forEach(post => {
                 const div = document.createElement('div');
                 const header = document.createElement('h3');
@@ -47,12 +52,17 @@ function listAllPosts() {
                 const contents = document.createElement('p');
                 contents.textContent = post.content;
 
+                const date = document.createElement('small');
+                date.textContent = post.createdDate;
+
                 div.appendChild(header);
                 div.appendChild(contents);
+                div.appendChild(date);
 
                 postElement.appendChild(div);
 
                 console.log(post);
             });
+            loadingElement.style.display = 'none';
         })
 }
